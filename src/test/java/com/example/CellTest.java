@@ -23,4 +23,12 @@ public class CellTest {
 
         assertEquals(expectedState, actualState);
     }
+
+    @Test
+    void cellShouldDieIfItHasMoreThanThreeNeighbors() {
+        Cell.State actualState = cell.calculateNextGeneration(4);
+        Cell.State expectedState = Cell.State.DEAD;
+
+        assertEquals(expectedState, actualState);
+    }
 }

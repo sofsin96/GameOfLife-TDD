@@ -12,6 +12,9 @@ public class Cell {
         if (state == State.ALIVE && neighbors < 2) {
             return State.DEAD;
         }
+        else if (state == State.ALIVE && neighbors > 3) {
+            return State.DEAD;
+        }
         else {
             return State.ALIVE;
         }
