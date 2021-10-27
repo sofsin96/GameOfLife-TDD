@@ -1,6 +1,8 @@
 package com.example;
 
+
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CellTest {
 
@@ -8,6 +10,9 @@ public class CellTest {
 
     @Test
     void cellShouldDieIfItHasFewerThanTwoLiveNeighbors() {
+        Cell.State actualState = cell.calculateNextGeneration(0);
+        Cell.State expectedState = Cell.State.DEAD;
 
+        assertEquals(expectedState, actualState);
     }
 }

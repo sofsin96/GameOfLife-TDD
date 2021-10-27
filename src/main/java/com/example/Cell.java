@@ -8,6 +8,10 @@ public class Cell {
         this.state = state;
     }
 
+    public State calculateNextGeneration(int neighbors) {
+        return State.DEAD;
+    }
+
     public enum State {
         ALIVE,
         DEAD
