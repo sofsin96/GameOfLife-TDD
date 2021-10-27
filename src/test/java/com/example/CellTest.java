@@ -1,6 +1,5 @@
 package com.example;
 
-
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,10 +7,10 @@ public class CellTest {
 
     @Test
     void cellShouldDieIfItHasFewerThanTwoLiveNeighbors() {
-        Cell cell = new Cell(Cell.State.ALIVE);
-        Cell.State actualStateWithZeroNeighbors = cell.calculateNextGeneration(0);
-        Cell.State actualStateWithOneNeighbor = cell.calculateNextGeneration(1);
-        Cell.State expectedState = Cell.State.DEAD;
+        Cell cell = new Cell(State.ALIVE);
+        State actualStateWithZeroNeighbors = cell.calculateNextGeneration(0);
+        State actualStateWithOneNeighbor = cell.calculateNextGeneration(1);
+        State expectedState = State.DEAD;
 
         assertEquals(expectedState, actualStateWithZeroNeighbors);
         assertEquals(expectedState, actualStateWithOneNeighbor);
@@ -19,10 +18,10 @@ public class CellTest {
 
     @Test
     void cellShouldLiveIfItHasTwoOrThreeNeighbors() {
-        Cell cell = new Cell(Cell.State.ALIVE);
-        Cell.State actualStateWithTwoNeighbors = cell.calculateNextGeneration(2);
-        Cell.State actualStateWithThreeNeighbors = cell.calculateNextGeneration(3);
-        Cell.State expectedState = Cell.State.ALIVE;
+        Cell cell = new Cell(State.ALIVE);
+        State actualStateWithTwoNeighbors = cell.calculateNextGeneration(2);
+        State actualStateWithThreeNeighbors = cell.calculateNextGeneration(3);
+        State expectedState = State.ALIVE;
 
         assertEquals(expectedState, actualStateWithTwoNeighbors);
         assertEquals(expectedState, actualStateWithThreeNeighbors);
@@ -30,18 +29,18 @@ public class CellTest {
 
     @Test
     void cellShouldDieIfItHasMoreThanThreeNeighbors() {
-        Cell cell = new Cell(Cell.State.ALIVE);
-        Cell.State actualStateWithFourNeighbors = cell.calculateNextGeneration(4);
-        Cell.State expectedState = Cell.State.DEAD;
+        Cell cell = new Cell(State.ALIVE);
+        State actualStateWithFourNeighbors = cell.calculateNextGeneration(4);
+        State expectedState = State.DEAD;
 
         assertEquals(expectedState, actualStateWithFourNeighbors);
     }
 
     @Test
     void deadCellShouldComeAliveWithThreeNeighbors() {
-        Cell cell = new Cell(Cell.State.DEAD);
-        Cell.State actualStateWithThreeNeighbors = cell.calculateNextGeneration(3);
-        Cell.State expectedState = Cell.State.ALIVE;
+        Cell cell = new Cell(State.DEAD);
+        State actualStateWithThreeNeighbors = cell.calculateNextGeneration(3);
+        State expectedState = State.ALIVE;
 
         assertEquals(expectedState, actualStateWithThreeNeighbors);
     }
