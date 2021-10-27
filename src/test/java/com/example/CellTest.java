@@ -15,4 +15,12 @@ public class CellTest {
 
         assertEquals(expectedState, actualState);
     }
+
+    @Test
+    void cellShouldLiveIfItHasTwoOrThreeNeighbors() {
+        Cell.State actualState = cell.calculateNextGeneration(2);
+        Cell.State expectedState = Cell.State.ALIVE;
+
+        assertEquals(expectedState, actualState);
+    }
 }
