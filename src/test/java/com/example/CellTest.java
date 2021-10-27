@@ -1,6 +1,13 @@
 package com.example;
 
-public class CellTest {
-    Cell cell = new Cell();
+import org.junit.jupiter.api.Test;
 
+public class CellTest {
+
+    Cell cell = new Cell(Cell.State.ALIVE);
+
+    @Test
+    void cellShouldDieIfItHasFewerThanTwoLiveNeighbors() {
+
+    }
 }
