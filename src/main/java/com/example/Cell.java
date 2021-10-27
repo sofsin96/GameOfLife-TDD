@@ -9,15 +9,17 @@ public class Cell {
     }
 
     public State calculateNextGeneration(int neighbors) {
-        if (state == State.ALIVE && neighbors < 2) {
-            return State.DEAD;
+        if (state == State.ALIVE) {
+            if (neighbors == 2 || neighbors == 3) {
+                return State.ALIVE;
+            }
         }
-        else if (state == State.ALIVE && neighbors > 3) {
-            return State.DEAD;
+        else if (state == State.DEAD) {
+            if (neighbors == 3) {
+                return State.ALIVE;
+            }
         }
-        else {
-            return State.ALIVE;
-        }
+        return State.DEAD;
     }
 
     public enum State {
