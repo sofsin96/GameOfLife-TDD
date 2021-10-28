@@ -52,4 +52,11 @@ public class CellTest {
 
         assertEquals(DEAD, cell.getState());
     }
+
+    @Test
+    void liveCellShouldHaveAliveState() {
+        Cell cell = new Cell(ALIVE);
+
+        assertEquals(ALIVE, cell.getState());
+    }
 }
