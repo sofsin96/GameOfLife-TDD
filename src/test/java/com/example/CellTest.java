@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.example.State.ALIVE;
 import static com.example.State.DEAD;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CellTest {
 
@@ -14,34 +14,34 @@ public class CellTest {
     @ValueSource(ints = { 0, 1 })
     void cellShouldDieIfItHasFewerThanTwoLiveNeighbors(int neighbors) {
         Cell cell = new Cell(ALIVE);
-        State actualState = cell.calculateNextGeneration(neighbors);
+        cell.calculateNextGeneration(neighbors);
 
-        assertEquals(DEAD, actualState);
+        assertEquals(DEAD, cell.getState());
     }
 
     @ParameterizedTest
     @ValueSource(ints = { 2, 3 })
     void cellShouldLiveIfItHasTwoOrThreeNeighbors(int neighbors) {
         Cell cell = new Cell(ALIVE);
-        State actualState = cell.calculateNextGeneration(neighbors);
+        cell.calculateNextGeneration(neighbors);
 
-        assertEquals(ALIVE, actualState);
+        assertEquals(ALIVE, cell.getState());
     }
 
     @Test
     void cellShouldDieIfItHasMoreThanThreeNeighbors() {
         Cell cell = new Cell(ALIVE);
-        State actualStateWithFourNeighbors = cell.calculateNextGeneration(4);
+        cell.calculateNextGeneration(4);
 
-        assertEquals(DEAD, actualStateWithFourNeighbors);
+        assertEquals(DEAD, cell.getState());
     }
 
     @Test
     void deadCellShouldComeAliveWithThreeNeighbors() {
         Cell cell = new Cell(DEAD);
-        State actualStateWithThreeNeighbors = cell.calculateNextGeneration(3);
+        cell.calculateNextGeneration(3);
 
-        assertEquals(ALIVE,actualStateWithThreeNeighbors);
+        assertEquals(ALIVE, cell.getState());
     }
 
     @Test

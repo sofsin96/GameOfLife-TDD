@@ -28,4 +28,12 @@ public class Grid {
         }
         return states;
     }
+
+    public void getNextState() {
+        for (int row = 0; row < cellState.length; row++) {
+            for (int col = 0; col < cellState[row].length; col++) {
+                cellState[row][col].calculateNextGeneration(0);
+            }
+        }
+    }
 }
