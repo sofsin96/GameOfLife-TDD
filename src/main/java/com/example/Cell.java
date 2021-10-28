@@ -2,9 +2,7 @@ package com.example;
 
 public class Cell {
 
-    public static final int MIN_NEIGHBORS_PER_CELL = 2;
-    public static final int MAX_NEIGHBORS_PER_CELL = 3;
-    public static final int THREE_NEIGHBORS_PER_DEAD_CELL = 3;
+    public static final int MIN_NEIGHBORS_PER_CELL = 2, MAX_NEIGHBORS_PER_CELL = 3, THREE_NEIGHBORS_PER_DEAD_CELL = 3;
     private final State state;
 
     public Cell(State state) {
@@ -23,5 +21,9 @@ public class Cell {
             }
         }
         return State.DEAD;
+    }
+
+    public State getState() {
+        return state;
     }
 }

@@ -45,4 +45,11 @@ public class CellTest {
 
         assertEquals(ALIVE,actualStateWithThreeNeighbors);
     }
+
+    @Test
+    void deadCellShouldHaveDeadState() {
+        Cell cell = new Cell(DEAD);
+
+        assertEquals(DEAD, cell.getState());
+    }
 }
