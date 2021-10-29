@@ -1,7 +1,6 @@
 package com.example;
 
-import static com.example.State.ALIVE;
-import static com.example.State.DEAD;
+import static com.example.State.*;
 
 public class Cell {
 

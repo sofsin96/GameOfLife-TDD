@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static com.example.State.ALIVE;
-import static com.example.State.DEAD;
+import static com.example.Cell.THREE_NEIGHBORS_PER_DEAD_CELL;
+import static com.example.State.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CellTest {
@@ -39,7 +39,7 @@ public class CellTest {
     @Test
     void deadCellShouldComeAliveWithThreeNeighbors() {
         Cell cell = new Cell(DEAD);
-        cell.calculateNextGeneration(3);
+        cell.calculateNextGeneration(THREE_NEIGHBORS_PER_DEAD_CELL);
 
         assertEquals(ALIVE, cell.getState());
     }
