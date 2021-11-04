@@ -1,10 +1,13 @@
 package com.example;
 
 import static com.example.State.*;
+import static java.lang.System.out;
+import static java.lang.Thread.sleep;
 
 public class Life {
     private static final State A = ALIVE;
     private static final State D = DEAD;
+    private static final int TIME_BETWEEN_ITERATIONS_MS = 500;
 
     public static void main(String[] args) throws InterruptedException {
         State[][] initialState = new State[][] {
@@ -17,7 +20,7 @@ public class Life {
         Grid grid = new Grid(initialState);
         displayGrid(initialState);
         grid.getNextState();
-        Thread.sleep(500);
+        sleep(TIME_BETWEEN_ITERATIONS_MS);
 
         int iterations = 2;
 
@@ -25,17 +28,17 @@ public class Life {
             State[][] nextState = grid.getState();
             displayGrid(nextState);
             grid.getNextState();
-            Thread.sleep(500);
+            sleep(TIME_BETWEEN_ITERATIONS_MS);
         }
     }
 
     private static void displayGrid(State[][] states) {
-        for (int row = 0; row < states.length; row++) {
-            for (int col = 0; col < states[row].length; col++) {
-                System.out.print(states[row][col] + "\t");
+        for (State[] state : states) {
+            for (State value : state) {
+                out.print(value.getLabel() + " ");
             }
-            System.out.println();
+            out.println();
         }
-        System.out.println("----------------------------------");
+        out.println();
     }
 }
