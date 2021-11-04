@@ -10,15 +10,15 @@ public class GridTest {
     private static final State A = ALIVE;
     private static final State D = DEAD;
 
-    State[][] initialState = new State[][] {
+    @Test
+    void givenStateShouldBeStored() {
+        State[][] initialState = new State[][] {
                 { D, D, D, D, D, D, D, D },
                 { D, D, D, D, A, D, D, D },
                 { D, D, D, A, A, D, D, D },
                 { D, D, D, D, D, D, D, D }
-    };
+        };
 
-    @Test
-    void givenStateShouldBeStored() {
         Grid grid = new Grid(initialState);
         State[][] actualState = grid.getState();
 
@@ -37,7 +37,14 @@ public class GridTest {
 
     @Test
     void givenGridOfCellsShouldBeUpdatedInTheNextGeneration() {
-        Grid nextGrid = new Grid(initialState);
+        State[][] initialState = new State[][] {
+                { D, D, D, D, D, D, D, D },
+                { D, D, D, D, A, D, D, D },
+                { D, D, D, A, A, D, D, D },
+                { D, D, D, D, D, D, D, D }
+        };
+
+        Grid grid = new Grid(initialState);
 
         State[][] expectedState = new State[][] {
                 { D, D, D, D, D, D, D, D },
@@ -46,8 +53,8 @@ public class GridTest {
                 { D, D, D, D, D, D, D, D }
         };
 
-        nextGrid.getNextState();
-        State[][] actualState = nextGrid.getState();
+        grid.getNextState();
+        State[][] actualState = grid.getState();
 
         assertArrayEquals(expectedState, actualState);
     }

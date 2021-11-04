@@ -44,40 +44,13 @@ public class Grid {
     private int countAliveNeighbors(State[][] state, int row, int col) {
         int aliveNeighbors = 0;
 
-        int topRow = row - 1;
-        int leftCol = col - 1;
-        int rightCol = col + 1;
-        int bottomRow = row + 1;
-
-        if (row > 0) {
-            if (col > 0 ) {
-                if (state[topRow][leftCol] == ALIVE) aliveNeighbors++;
-            }
-            if (state[topRow][col] == ALIVE) aliveNeighbors++;
-            if (col < state[row].length - 1) {
-                if (state[topRow][rightCol] == ALIVE) aliveNeighbors++; {
-                }
-            }
-        }
-
-        if (col > 0 ) {
-            if (state[row][leftCol] == ALIVE) aliveNeighbors++;
-        }
-        if (state[row][col] == ALIVE) aliveNeighbors++;
-        if (col < state[row].length - 1) {
-            if (state[row][rightCol] == ALIVE) aliveNeighbors++; {
-            }
-        }
-
-        if (row < state.length - 1) {
-            if (col > 0 ) {
-                if (state[bottomRow][leftCol] == ALIVE) aliveNeighbors++;
-            }
-            if (state[bottomRow][col] == ALIVE) aliveNeighbors++;
-            if (col < state[row].length - 1) {
-                if (state[bottomRow][rightCol] == ALIVE) aliveNeighbors++; {
-                }
-            }
+        for (int i = row - 1; i <= row + 1; i++) {
+            if (i >= 0 && i < state.length)
+                for (int j = col - 1; j <= col + 1; j++)
+                    if (j >= 0 && j < state[i].length)
+                        if (i != row || j != col)
+                            if (state[i][j] == ALIVE)
+                                aliveNeighbors++;
         }
         return aliveNeighbors;
     }
