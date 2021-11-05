@@ -1,6 +1,7 @@
 package com.example;
 
 import static com.example.State.ALIVE;
+import static java.lang.System.out;
 
 public class Grid {
 
@@ -53,5 +54,16 @@ public class Grid {
                                 aliveNeighbors++;
         }
         return aliveNeighbors;
+    }
+
+     public static Grid displayGrid(State[][] states) {
+        for (State[] state : states) {
+            for (State value : state) {
+                out.print(value.getLabel() + " ");
+            }
+            out.println();
+        }
+        out.println();
+        return new Grid(states);
     }
 }
