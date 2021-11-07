@@ -7,7 +7,7 @@ import static java.lang.Thread.sleep;
 public class Life {
     private static final State A = ALIVE;
     private static final State D = DEAD;
-    private static final int TIME_BETWEEN_ITERATIONS_MS = 500, ITERATIONS = 4;
+    private static final int TIME_BETWEEN_ITERATIONS_MS = 500, ITERATIONS = 5;
 
     public static void main(String[] args) throws InterruptedException {
         State[][] initialState = new State[][] {

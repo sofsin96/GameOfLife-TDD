@@ -57,13 +57,13 @@ public class Grid {
     }
 
      public static Grid displayGrid(State[][] states) {
-        for (State[] state : states) {
-            for (State value : state) {
-                out.print(value.getLabel() + " ");
-            }
-            out.println();
-        }
-        out.println();
-        return new Grid(states);
+         for (State[] state : states) {
+             for (State value : state) {
+                 out.print(value.getLabel() + " ");
+             }
+             out.println();
+         }
+         out.println();
+         return new Grid(states);
     }
 }
